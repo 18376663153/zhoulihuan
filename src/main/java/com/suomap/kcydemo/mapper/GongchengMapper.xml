@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.suomap.kcydemo.mapper.GongchengMapper">
+    <resultMap id="gongchengMap1" type="java.util.Map">
+        <result column="XiangmuFuzeren_str" property="XiangmuFuzeren"></result>
+    </resultMap>
+    <select id="getGongchengsByIds" resultMap="gongchengMap1">
+        select v.*,dbo.FormatUserNames(v.XiangmuFuzeren) XiangmuFuzeren_str from report_suoyoucehuixiangmu v
+        where
+        v.id in
+        <foreach collection="list" index="index" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
+</mapper>

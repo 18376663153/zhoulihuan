@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.suomap.kcydemo.mapper.SearchGongchengIdMapper">
+    <select id="selectGongchengIdByHetong" resultType="java.lang.String">
+        select t.xiangmugongcheng from _cehuihetong t where t.id = #{id}
+    </select>
+    <select id="selectGongchengIdByQiandan" resultType="java.lang.Integer">
+        select v.xiangmugongcheng from report_qiandan v where v.id = #{id}
+    </select>
+    <select id="selectGongchengIdByShoukuan" resultType="java.lang.Integer">
+        select v.xiangmugongcheng from report_shoukuan v where v.id = #{id}
+    </select>
+
+</mapper>

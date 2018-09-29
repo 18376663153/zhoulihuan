@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>cadac</title>
+	<link rel="stylesheet" type="text/css" href="http://localhost:8999/commonLib/bootstrap/css/bootstrap.css">
+	<script type="text/javascript" src="http://localhost:8999/commonLib/jQuery/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="http://localhost:8999/commonLib/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="http://localhost:8999/js/testPlugin.js"></script>
+</head>
+<body>
+	<div class="a" style="background-color: skyblue;" id="a"></div>
+	<button type="button" class="btn btn-primary btn-lg a-btn" data-toggle="modal" data-target="#myModal">
+	  Launch demo modal
+	</button>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<div id="plugin-content"></div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class='b' id="b" style="background-color: yellowgreen;" ></div>
+	<div class="c" id="c" style="margin-top: 10px;border:1px solid skyblue;">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>编号</th>
+					<th>名称</th>
+					<th>负责人</th>
+					<th>日期</th>
+					<th>状态</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>123</td>
+					<td>柴达木路大</td>
+					<td>二维从</td>
+					<td>2008-09-08</td>
+					<td>结束</td>
+					<td>
+						<button class="btn btn-default" onclick="openModal(3,8818)" data-toggle="modal" data-target="#relatedmodal">相关</button>
+					</td>
+				</tr>
+				<tr>
+					<td>123</td>
+					<td>柴达木路大</td>
+					<td>二维从</td>
+					<td>2008-09-08</td>
+					<td>结束</td>
+					<td>
+						<button class="btn btn-default" onclick="openModal(3,7718)" data-toggle="modal" data-target="#relatedmodal">相关</button>
+					</td>
+				</tr>
+				<tr>
+					<td>123</td>
+					<td>柴达木路大</td>
+					<td>二维从</td>
+					<td>2008-09-08</td>
+					<td>结束</td>
+					<td>
+						<button class="btn btn-default" onclick="openModal(3,6618)" data-toggle="modal" data-target="#relatedmodal">相关</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade bs-example-modal-lg" id="relatedmodal" tabindex="-1" role="dialog" aria-labelledby="relatedmodal">
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<div id="related-content"></div>
+	      	<div class="tables-container">
+	      		<div class="table-pane">
+	      			<div class="table-title-pane" style="display:flex;align-items: center;">
+	      				<div class="collapsing-triangle" style="display: inline-block;width: 0px;height: 0px;
+	      				border-left: 5px solid transparent;border-right: 5px solid transparent;border-top: 5px solid #ccc;"></div>
+	      				&nbsp;
+	      				<span>工程</span>
+	      			</div>
+	      			<div class="table-body-pane">
+	      				<table class="table">
+							<thead>
+								<tr>
+									<th>编号</th>
+									<th>名称</th>
+									<th>负责人</th>
+									<th>日期</th>
+									<th>状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>123</td>
+									<td>柴达木路大</td>
+									<td>二维从</td>
+									<td>2008-09-08</td>
+									<td>结束</td>
+									<td>
+										<button class="btn btn-default" onclick="openModal(3,8818)" data-toggle="modal" data-target="#relatedmodal">相关</button>
+									</td>
+								</tr>
+								<tr>
+									<td>123</td>
+									<td>柴达木路大</td>
+									<td>二维从</td>
+									<td>2008-09-08</td>
+									<td>结束</td>
+									<td>
+										<button class="btn btn-default" onclick="openModal(3,7718)" data-toggle="modal" data-target="#relatedmodal">相关</button>
+									</td>
+								</tr>
+								<tr>
+									<td>123</td>
+									<td>柴达木路大</td>
+									<td>二维从</td>
+									<td>2008-09-08</td>
+									<td>结束</td>
+									<td>
+										<button class="btn btn-default" onclick="openModal(3,6618)" data-toggle="modal" data-target="#relatedmodal">相关</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+	      			</div>
+	      		</div>
+	      		<div class="table-pane">
+	      			<div class="table-title-pane" style="display:flex;align-items: center;">
+	      				<div class="collapsing-triangle" style="display: inline-block;width: 0px;height: 0px;
+	      				border-left: 5px solid transparent;border-right: 5px solid transparent;border-top: 5px solid #ccc;"></div>
+	      				&nbsp;
+	      				<span>工程</span>
+	      			</div>
+	      			<div class="table-body-pane">
+	      				<table class="table">
+							<thead>
+								<tr>
+									<th>编号</th>
+									<th>名称</th>
+									<th>负责人</th>
+									<th>日期</th>
+									<th>状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>123</td>
+									<td>柴达木路大</td>
+									<td>二维从</td>
+									<td>2008-09-08</td>
+									<td>结束</td>
+									<td>
+										<button class="btn btn-default" onclick="openModal(3,8818)" data-toggle="modal" data-target="#relatedmodal">相关</button>
+									</td>
+								</tr>
+								<tr>
+									<td>123</td>
+									<td>柴达木路大</td>
+									<td>二维从</td>
+									<td>2008-09-08</td>
+									<td>结束</td>
+									<td>
+										<button class="btn btn-default" onclick="openModal(3,7718)" data-toggle="modal" data-target="#relatedmodal">相关</button>
+									</td>
+								</tr>
+								<tr>
+									<td>123</td>
+									<td>柴达木路大</td>
+									<td>二维从</td>
+									<td>2008-09-08</td>
+									<td>结束</td>
+									<td>
+										<button class="btn btn-default" onclick="openModal(3,6618)" data-toggle="modal" data-target="#relatedmodal">相关</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+	      			</div>
+	      		</div>
+	      		<div class="table-pane">
+	      			<div class="table-title-pane" style="display:flex;align-items: center;">
+	      				<div class="collapsing-triangle" style="display: inline-block;width: 0px;height: 0px;
+	      				border-left: 5px solid transparent;border-right: 5px solid transparent;border-top: 5px solid #ccc;"></div>
+	      				&nbsp;
+	      				<span>工程</span>
+	      			</div>
+	      			<div class="table-body-pane">
+	      				<table class="table">
+							<thead>
+								<tr>
+									<th>编号</th>
+									<th>名称</th>
+									<th>负责人</th>
+									<th>日期</th>
+									<th>状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>123</td>
+									<td>柴达木路大</td>
+									<td>二维从</td>
+									<td>2008-09-08</td>
+									<td>结束</td>
+									<td>
+										<button class="btn btn-default" onclick="openModal(3,8818)" data-toggle="modal" data-target="#relatedmodal">相关</button>
+									</td>
+								</tr>
+								<tr>
+									<td>123</td>
+									<td>柴达木路大</td>
+									<td>二维从</td>
+									<td>2008-09-08</td>
+									<td>结束</td>
+									<td>
+										<button class="btn btn-default" onclick="openModal(3,7718)" data-toggle="modal" data-target="#relatedmodal">相关</button>
+									</td>
+								</tr>
+								<tr>
+									<td>123</td>
+									<td>柴达木路大</td>
+									<td>二维从</td>
+									<td>2008-09-08</td>
+									<td>结束</td>
+									<td>
+										<button class="btn btn-default" onclick="openModal(3,6618)" data-toggle="modal" data-target="#relatedmodal">相关</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+	      			</div>
+	      		</div>
+	      	</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<script type="text/javascript" src="http://localhost:8999/js/test.js"></script>
+</body>
+</html>
