@@ -59,7 +59,11 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.47</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.3</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -77,7 +81,7 @@
                 <!--</excludes>-->
                 <!--<filtering>true</filtering>-->
                 <includes>
-                    <include>**/*.xml</include>
+                    <include>**/*.*</include>
                 </includes>
                 <filtering>true</filtering>
             </resource>

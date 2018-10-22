@@ -1,5 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.suomap.kcydemo.mapper.CycleSearchMapper">
-
-</mapper>
+    <select id="getTableData" resultType="java.util.Map">
+        select
+        _cehuixiangmu.XiangmuBianhao as XiangmuBianhaoFixed,
+        <foreach collection="outputInfo" separator="," item="item" index="index" open="" close="">
+            ${item.field} as ${item.alias}
+        </foreach>
+        from v_lifecycle_cehuixiangmu _cehuixiangmu
+        <!--left join _cehuihetong on patindex('%[^0123456789]'+CAST(_cehuixiangmu.id AS varchar)+'[^0123456789]%', _cehuihetong.XiangmuGongcheng) > 0-->
+        <!--       left join _cehuihetong on CAST(_cehuixiangmu.id AS varchar) = _cehuihetong.XiangmuGongcheng-->
+        <if test="inAndOutTableArr.indexOf('_cehuihetong')>0">
+            left join lifecycle_r_xiangmuhetong on _cehuixiangmu.id = lifecycle_r_xiangmuhetong.XiangmuId
+            left join _cehuihetong on lifecycle_r_xiangmuhetong.Hetongid = _cehuihetong.id
+        </if>
+        <if test="inAndOutTableArr.indexOf('_qiandan')>0">
+            left join _qiandan on _cehuixiangmu.id = _qiandan.XiangmuGongcheng
+        </if>
+        <if test="inAndOutTableArr.indexOf('_shoukuan')>0">
+          left join _shoukuan on _cehuixiangmu.id = _shoukuan.XiangmuGongcheng
+        </if>
+        <trim prefix="where" suffixOverrides="or">
+            <if test="!''.equals(keyword)">
+                <foreach collection="inputInfo"  item="item" index="index" open="" close="">
+                    ${item} like '%'+#{keyword}+'%' or
+                </foreach>
+            </if>
+        </trim>
+    </select>
+    <select id="getTableDataSenior" resultType="java.util.Map">
+        select
+        <foreach collection="outputInfo" separator="," item="item" index="index" open="" close="">
+            ${item.field} as ${item.alias}
+        </foreach>
+        from _cehuixiangmu
+        <if test="inAndOutTableArr.indexOf('_cehuihetong')>0">
+            left join lifecycle_r_xiangmuhetong on _cehuixiangmu.id = lifecycle_r_xiangmuhetong.XiangmuId
+            left join _cehuihetong on lifecycle_r_xiangmuhetong.Hetongid = _cehuihetong.id
+        </if>
+        <if test="inAndOutTableArr.indexOf('_qiandan')>0">
+            left join _qiandan on _cehuixiangmu.id = _qiandan.XiangmuGongcheng
+        </if>
+        <if test="inAndOutTableArr.indexOf('_shoukuan')>0">
+            left join _shoukuan on _cehuixiangmu.id = _shoukuan.XiangmuGongcheng
+        </if>
+        <trim prefix="where" suffixOverrides="and">
+            <foreach collection="inputInfo"  item="item" index="index" open="" close="">
+                <if test="''.equals(item.keyword)">
+                    (${item.field} like '%'+#{item.keyword}+'%' or ${item.field} is null) and
+                </if>
+                <if test="!''.equals(item.keyword)">
+                    ${item.field} like '%'+#{item.keyword}+'%' and
+                </if>
+            </foreach>
+        </trim>
+    </select>
+  </mapper>
