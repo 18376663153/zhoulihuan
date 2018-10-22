@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.suomap.kcydemo.mapper.TemplateMapper">
+    <select id="getAllTemplate" resultType="java.util.Map">
+        select * from lifecycle_template
+    </select>
+    <select id="getTemplateById" resultType="java.util.Map">
+        select * from lifecycle_template t where t.TemplateId = #{id}
+    </select>
+    <select id="getInputByConfigId"  resultType="java.util.Map">
+        select * from lifecycle_input_template t where t.inputconfigid = #{inputConfigId}
+    </select>
+    <select id="getOutputByConfigId"  resultType="java.util.Map">
+        select * from lifecycle_output_template t where t.outputconfigid = #{outputConfigId}
+    </select>
+    <insert id="insertTempate">
+        insert into lifecycle_template values(#{TemplateId},#{TemplateName},#{InputConfigId},#{OutputConfigId})
+    </insert>
+    <insert id="insertInputTempate">
+        insert into lifecycle_input_template(InputTemplateId,InputConfigId,TableName,FieldName,Type)
+        values(#{InputTemplateId},#{InputConfigId},#{TableName},#{FieldName},#{Type})
+    </insert>
+    <insert id="insertOutputTempate">
+        insert into lifecycle_output_template(OutputTemplateId,OutputConfigId,TableName,FieldName,Type)
+        values(#{OutputTemplateId},#{OutputConfigId},#{TableName},#{FieldName},#{Type})
+    </insert>
+</mapper>
