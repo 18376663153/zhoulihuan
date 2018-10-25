@@ -39,7 +39,7 @@
 								:data="pageInfo.list"
 								style="width:100%;"
 								max-height="600"
-								@row-click="doResultTableClick"
+								@row-dblclick="doResultTableClick"
 								:header-cell-style="resultTableHeaderCellStyle"
 								:cell-style="resultTableRowStyle"
 								border
@@ -53,6 +53,7 @@
 							<el-table-column v-for="(field,index) in outputInfo" :key="index"
 											 :label="tableFieldMap[field.TableName]['fields'][field.FieldName]"
 											 :prop="field.TableName+'_'+field.FieldName"
+											 :min-width="field.Width?field.Width:4"
 											 :show-overflow-tooltip="true"
 							>
 								<!--<template slot-scope="scope">-->
