@@ -1,1 +1,0 @@
-var servicePath = 'http://localhost:8999';
